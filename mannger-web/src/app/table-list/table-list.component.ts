@@ -11,6 +11,7 @@ export class TableListComponent implements OnInit {
 
   ngOnInit() {
       console.log('初始化');
+      console.log(45);
   }
 
 }
