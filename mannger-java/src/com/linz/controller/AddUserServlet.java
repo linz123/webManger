@@ -18,7 +18,7 @@ public class AddUserServlet extends HttpServlet {
         byte sex = Byte.parseByte(req.getParameter("sex"));
         try {
             Date generateTime = simpleDateFormat.parse(req.getParameter("generateTime"));
-            System.out.println("Hello World");
+            System.out.println("Hello World Git");
         } catch (ParseException e) {
             e.printStackTrace();
         }
