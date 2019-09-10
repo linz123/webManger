@@ -10,6 +10,8 @@ export class TableListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+      console.log('初始化');
+      console.log(45);
   }
 
 }
