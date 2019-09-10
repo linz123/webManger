@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/mannger-java/mannger-java.iml" filepath="$PROJECT_DIR$/mannger-java/mannger-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/mannger-web/mannger-web.iml" filepath="$PROJECT_DIR$/mannger-web/mannger-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/txMannager-web.iml" filepath="$PROJECT_DIR$/.idea/txMannager-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webManger/webManger.iml" filepath="$PROJECT_DIR$/webManger/webManger.iml" />
     </modules>
   </component>
 </project>
