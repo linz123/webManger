@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/mannger-java/mannger-java.iml" filepath="$PROJECT_DIR$/mannger-java/mannger-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mannger-web/mannger-web.iml" filepath="$PROJECT_DIR$/mannger-web/mannger-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/webManger.iml" filepath="$PROJECT_DIR$/.idea/webManger.iml" />
     </modules>
   </component>
