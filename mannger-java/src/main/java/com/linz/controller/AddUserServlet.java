@@ -24,26 +24,35 @@ public class AddUserServlet extends HttpServlet {
         String userName = req.getParameter("username");
         String password = req.getParameter("password");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        byte sex = Byte.parseByte(req.getParameter("sex"));
+        Integer sex = Integer.parseInt(req.getParameter("sex"));
         JSONObject json = new JSONObject();
         resp.setContentType("application/json;charset=UTF-8");
-        resp.setHeader("Access-Control-Allow-Origin","*");
+        resp.setHeader("Access-Control-Allow-Origin", "*");
         PrintWriter writer = resp.getWriter();
         try {
             Date generateTime = simpleDateFormat.parse(req.getParameter("generateTime"));
             if (this.checkParams(userName, password, sex, generateTime)) {
-                User user = new User();
                 UserService userService = new UserService();
-                user.setUserName(userName);
-                user.setPassword(password);
-                user.setGenerate_time(generateTime);
-                user.setSex(sex);
-                boolean isAdd = userService.addUser(user);
-                if (isAdd) {
-                    json.put("message", "添加成功！");
-                    json.put("status", 200);
+                User user = userService.getUserByName(userName);
+                System.out.println("user");
+                System.out.println(user);
+                System.out.println("end");
+                if (user == null) {
+                    User userBody = new User();
+                    userBody.setUsername(userName);
+                    userBody.setPassword(password);
+                    userBody.setGenerate_time(generateTime);
+                    userBody.setSex(sex);
+                    boolean isAdd = userService.addUser(userBody);
+                    if (isAdd) {
+                        json.put("message", "添加成功！");
+                        json.put("status", 200);
+                    } else {
+                        json.put("message", "添加失败！");
+                        json.put("status", 400);
+                    }
                 } else {
-                    json.put("message", "添加失败！");
+                    json.put("message", "用户名已存在！");
                     json.put("status", 400);
                 }
             }
@@ -70,7 +79,7 @@ public class AddUserServlet extends HttpServlet {
      * @param generateTime 注册时间
      * @return boolean
      */
-    private boolean checkParams(String username, String password, Byte sex, Date generateTime) {
+    private boolean checkParams(String username, String password, Integer sex, Date generateTime) {
 
         return true;
     }

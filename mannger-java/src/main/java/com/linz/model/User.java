@@ -4,13 +4,29 @@ import java.util.Date;
 
 public class User {
     private Integer user_id;
-    private String userName;
+    private String username;
     private String password;
     private Date generate_time;
     private Date login_time;
     private Date last_login_time;
-    private byte sex;
+    private Integer sex;
     private int count;
+
+    public User(
+            Integer user_id, String username, String password, Date generate_time, Date login_time,
+            Date last_login_time, Integer sex, int count) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
+        this.generate_time = generate_time;
+        this.login_time = login_time;
+        this.last_login_time = last_login_time;
+        this.sex = sex;
+        this.count = count;
+    }
+
+    public User() {
+    }
 
     public Integer getUser_id() {
         return user_id;
@@ -20,12 +36,12 @@ public class User {
         this.user_id = user_id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -60,11 +76,11 @@ public class User {
         this.last_login_time = last_login_time;
     }
 
-    public byte getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(byte sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -74,5 +90,12 @@ public class User {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    @Override
+    public String toString() {
+        return "User [user_id=" + user_id + ", username=" + username + ", password="
+                + password + ", generate_time=" + generate_time + ", login_time=" + login_time
+                + ", last_login_time=" + last_login_time + ", sex=" + sex + ", count=" + count + "]";
     }
 }

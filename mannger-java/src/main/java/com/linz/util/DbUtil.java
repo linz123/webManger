@@ -22,7 +22,7 @@ public class DbUtil {
         String URL = "jdbc:mysql://" + SERVER + ":3306/" + DBNAME;
 
         final String USERNAME = "root";
-        final String PASSWORD = "132875";
+        final String PASSWORD = "hu132875";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -30,6 +30,7 @@ public class DbUtil {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+        System.out.println(connection);
         return connection;
     }
 
@@ -43,7 +44,11 @@ public class DbUtil {
     public ResultSet executeQuery(String preparedSql, ArrayList<Object> params) {
         connection = this.getDbConnection();
         try {
-            preparedStatement.executeQuery(preparedSql);
+            System.out.println("connection");
+            System.out.println(connection);
+            System.out.println("connection - end");
+            preparedStatement = connection.prepareStatement(preparedSql);
+
             if (params != null && !params.isEmpty()) {
                 for (int i = 0; i < params.size(); i++) {
                     preparedStatement.setObject(i + 1, params.get(i));
@@ -53,9 +58,8 @@ public class DbUtil {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            this.closeDbConnection();
+//            this.closeDbConnection();
         }
-
         return resultSet;
 
     }

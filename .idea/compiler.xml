@@ -9,7 +9,7 @@
         <module name="mannger-java" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8">
       <module name="mannger-java" target="8" />
     </bytecodeTargetLevel>
   </component>
